@@ -1,0 +1,34 @@
+/*
+Akar digital adalah jumlah rekursif dari semua digit dalam angka.
+Diberikan n, ambil jumlah digit dari n. Jika nilai tersebut memiliki lebih dari satu digit, terus kurangi dengan cara ini hingga dihasilkan angka satu digit. Input akan menjadi bilangan bulat non-negatif.
+*/
+
+#include <iostream>
+using namespace std;
+
+int jumlahDigit(int n)
+{
+    if (n < 10)
+    {
+        return n;
+    }
+
+    int jumlah = 0;
+    while (n > 0)
+    {
+        int digit = n % 10;
+        jumlah += digit;
+        n /= 10;
+    }
+
+    return jumlahDigit(jumlah);
+}
+
+int main()
+{
+    cout << "Masukkan angka: ";
+    int angka, hasil;
+    cin >> angka;
+    hasil = jumlahDigit(angka);
+    cout << "Hasil: " << hasil << endl;
+}
